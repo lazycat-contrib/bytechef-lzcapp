@@ -1,5 +1,5 @@
 package: community.lazycat.app.bytechef
-version: 2026.10.13
+version: 2027.7.18
 name: ByteChef
 description: Open-source AI agents and workflow automation, a self-hostable alternative to n8n and Zapier
 min_os_version: 1.5.0
