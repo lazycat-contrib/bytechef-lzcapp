@@ -1,0 +1,40 @@
+application:
+  subdomain: bytechef
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://bytechef:8080/
+  injects:
+    # ByteChef has no pre-seeded account: the first visit registers one. Fill the
+    # deployed credentials on both the sign-in and the sign-up forms so the
+    # store password rule is satisfied without the user typing anything.
+    - id: login-autofill
+      when:
+        - /login
+        - /register
+        - /sign-up
+      do:
+        - src: builtin://simple-inject-password
+          params:
+            user: "{{ .U.login_email }}"
+            password: "{{ .U.login_password }}"
+    # Workflow import, CSV import and icon upload use native file pickers, which
+    # the store requires to route through the LazyCat cloud drive.
+    - id: open-save-chooser
+      on: browser
+      when:
+        - /*
+      do:
+        - src: file:///lzcapp/pkg/content/lazycat-injects/lzc-file-chooser-inject.js
+
+services:
+  bytechef:
+    # bytechef/bytechef:20261013
+    image: bytechef/bytechef:20261013
+    environment:
+      - BYTECHEF_DATABASE=h2
+      - BYTECHEF_AI_MEMORY_PROVIDER=in_memory
+      - BYTECHEF_SECURITY_REMEMBER_ME_KEY={{ stable_secret "bytechef_remember_me" }}
+    binds:
+      - /lzcapp/var/bytechef:/root/.bytechef

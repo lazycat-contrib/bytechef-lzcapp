@@ -1,0 +1,21 @@
+params:
+- id: login_email
+  type: string
+  name: Login Email
+  description: Email used to sign in or create the ByteChef account
+  default_value: admin@lazycat.local
+  optional: false
+- id: login_password
+  type: secret
+  name: Login Password
+  description: Password for the ByteChef account (8+ chars, one uppercase letter and one number)
+  default_value: Bytechef2026
+  optional: false
+locales:
+  zh:
+    login_email:
+      name: 登录邮箱
+      description: 用于登录或创建 ByteChef 账号的邮箱
+    login_password:
+      name: 登录密码
+      description: ByteChef 账号密码，至少 8 位并包含大写字母与数字
