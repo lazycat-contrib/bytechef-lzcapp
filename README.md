@@ -7,7 +7,7 @@
 - 单容器镜像：`bytechef/bytechef`，端口 8080，数据在 `/root/.bytechef`
 - 数据库：**H2 内嵌**（`BYTECHEF_DATABASE=h2`），无需外部 PostgreSQL
 - 镜像交付：**lazycat 模式**（官方商店要求镜像来自懒猫镜像源，由 Action 转存并改写 manifest）
-- 发布目标：**双商店**（官方商店 + 喵喵商店）
+- 发布目标：**仅喵喵商店**（私有商店；官方商店已关闭）
 
 ## 版本发现
 
@@ -37,6 +37,6 @@ H2 模式是上游推荐的「无需外部数据库」评估方案；如需 AI �
 - `lzc-manifest.yml` — 单服务、免密登录注入、文件选择器注入
 - `lzc-deploy-params.yml` — 登录邮箱与密码部署参数
 - `content/lazycat-injects/` — 文件选择器拦截脚本
-- `.github/screenshots/` — 官方商店截图
-- `.github/lazycat-action.yml` — 双商店配置
-- `.github/workflows/lazycat.yml` — 每日自动跟版 + 双商店发布
+- `.github/screenshots/` — 应用截图（仅喵喵商店不再使用，保留备查）
+- `.github/lazycat-action.yml` — 仅喵喵商店配置（official 关闭，private 开启）
+- `.github/workflows/lazycat.yml` — 每日自动跟版 + 喵喵商店自动发布

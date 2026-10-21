@@ -29,34 +29,7 @@ images:
   exclude_regex: ^20270718$
 stores:
   official:
-    enabled: true
-    skip_if_version_exists: true
-    create_if_missing: true
-    changelog_locales:
-    - zh
-    - en
-    retry:
-      enabled: true
-      max_attempts: 3
-      initial_delay: 2s
-      max_delay: 30s
-    application:
-      language: zh
-      name: ByteChef
-      brief: 开源 AI 智能体与工作流自动化平台，可自托管，n8n 与 Zapier 的开源替代
-      description: |
-        ByteChef 是一个开源的 AI 智能体与工作流自动化平台：用可视化画布把触发器、分支、
-        各类集成和 AI Agent 串成自动化流程，也支持把工作流嵌进你自己的 SaaS。
-        内置大量连接器，支持分支与并行执行、错误处理与运行历史，所有数据都保存在
-        你自己的懒猫微服里。
-      keywords: 工作流,自动化,AI Agent,n8n,Zapier,低代码,连接器,自托管
-      source: https://github.com/bytechefhq/bytechef
-      source_author: bytechefhq
-      support_pc: true
-      screenshot_pc_files:
-      - .github/screenshots/pc-1-editor.png
-      - .github/screenshots/pc-2-agent.png
-      - .github/screenshots/pc-3-integrations.png
+    enabled: false
   private:
     enabled: true
     skip_if_version_exists: true
