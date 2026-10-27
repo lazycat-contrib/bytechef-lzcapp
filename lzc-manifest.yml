@@ -30,8 +30,8 @@ application:
 services:
   bytechef:
     # bytechef/bytechef:20261013
-    # upstream: bytechef/bytechef:20261013
-    image: registry.lazycat.cloud/czyt/bytechef/bytechef:8edb03fa0b6f89fc
+    # upstream: bytechef/bytechef:20261026
+    image: registry.lazycat.cloud/czyt/bytechef/bytechef:f1b1855c67c6d0e5
     environment:
       - BYTECHEF_DATABASE=h2
       - BYTECHEF_AI_MEMORY_PROVIDER=in_memory
